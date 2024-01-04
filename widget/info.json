@@ -1,0 +1,18 @@
+{
+    "name": "progress_bar",
+    "version": "1.0.0",
+    "title": "Indicator Score Widget",
+    "subTitle": "Danny Custom Widget Template",
+    "metadata": {
+        "pages": [
+            "View Panel"
+        ],
+        "certified": "No",
+        "publisher": "danny",
+        "description": "",
+        "compatibility": [
+            "7.4.3"
+        ]
+    },
+    "development": false
+}

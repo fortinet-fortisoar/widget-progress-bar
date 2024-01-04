@@ -1,0 +1,58 @@
+<form data-ng-submit="save()" class="noMargin" name="editProgressBar"
+    data-ng-class="{'state-wait': processing }" novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title col-md-9">Danny Custom Widget Template Title</h3>
+        <button type="button" class="close" data-ng-click="cancel()" data-dismiss="modal" aria-label="Close"
+            id="close-edit-widget-form-btn">
+            <div aria-hidden="true" class="version-button">+</div>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <!-- Input field to set title for widget -->
+        <div class="form-group"
+            data-ng-class="{ 'has-error': editProgressBar.title.$invalid && editProgressBar.title.$touched }">
+            <label for="pbTitle" class="control-label">Title</label>
+            <input id="pbTitle" name="title" type="text" data-ng-model="config.title" class="form-control" />
+            <div data-cs-messages="editProgressBar.title"></div>
+        </div>
+
+        <!-- Displays list of Modules -->
+        <div class="form-group"
+            data-ng-class="{ 'has-error': editProgressBar.resource.$invalid && editProgressBar.resource.$touched }">
+            <label for="pbResource" class="control-label">Data Source<span class="text-danger">*</span></label>
+
+            <!-- Give options of modules in dashboard -->
+            <select id="pbResource" name="resource" class="form-control padding-bottom-20"
+                data-ng-options="module.type as module.name for module in modules" data-ng-model="config.module"
+                data-ng-change="loadModuleFields()" required>
+                <option value="">Select an option</option>
+            </select>
+
+            <div data-cs-messages="editProgressBar.module"></div>
+        </div>
+
+        <!-- Display module field for view panel -->
+        <div class="form-group"
+            data-ng-class="{ 'has-error': editProgressBar.inputResource.$invalid && editProgressBar.inputResource.$touched}"
+            data-ng-if="config.inputFields.length > 0">
+            <label for="pbInputResource" class="control-label">Input Field<span class="text-danger">*</span></label>
+            <select id="pbInputResource" name="inputResource" class="form-control"
+                data-ng-options="inputField.name as inputField.title for inputField in config.inputFields | orderBy : 'title'"
+                data-ng-model="config.selectInput" data-ng-change="setMinMaxForIntegerField()" required>
+                <option value="">Select an option</option>
+            </select>
+            <div data-cs-messages="editProgressBar.inputField"></div>
+        </div>
+
+        <!-- TODO ADD field to the textarea -->
+        <!-- <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary" data-ng-click="addField()"><i
+            class="icon icon-check margin-right-sm"></i>Add</button> -->
+    </div>
+    <div class="modal-footer">
+        <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary" data-ng-click="save()"><i
+                class="icon icon-check margin-right-sm"></i>Save</button>
+        <button id="edit-widget-cancel" type="button" class="btn btn-sm btn-default" data-ng-click="cancel()"><i
+                class="icon icon-close margin-right-sm"></i>Close</button>
+    </div>
+</form>
