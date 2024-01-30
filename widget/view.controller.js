@@ -1,17 +1,16 @@
 /* Copyright start
-  Copyright (C) 2008 - 2023 Fortinet Inc.
-  All rights reserved.
-  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+    MIT License
+    Copyright (c) 2024 Fortinet Inc
   Copyright end */
 'use strict';
 (function () {
     angular
         .module('cybersponse')
-        .controller('progress_bar100Ctrl', progress_bar100Ctrl);
+        .controller('progressBar100Ctrl', progressBar100Ctrl);
 
-    progress_bar100Ctrl.$inject = ['$scope', 'FormEntityService', '$state', '$rootScope', '$timeout', 'websocketService'];
+        progressBar100Ctrl.$inject = ['$scope', 'FormEntityService', '$rootScope', '$timeout', 'websocketService'];
 
-    function progress_bar100Ctrl($scope, FormEntityService, $state, $rootScope, $timeout, websocketService) {
+    function progressBar100Ctrl($scope, FormEntityService, $rootScope, $timeout, websocketService) {
         // $scope.config == config
         // $scope.config.module is saved from the editcontroller
 
@@ -69,11 +68,6 @@
 
         function clamp(val, min_val, max_val) {
             return Math.min(Math.max(val, min_val), max_val);
-        }
-
-        function getPercentage(val, min_val, max_val) {
-            const _val = ((val - min_val) / (max_val - min_val)) * 100;
-            return clamp(_val, 0, 100);
         }
 
         // ---------- end of custom javascript -----------
