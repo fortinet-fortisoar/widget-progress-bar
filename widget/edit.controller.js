@@ -1,17 +1,16 @@
 /* Copyright start
-  Copyright (C) 2008 - 2023 Fortinet Inc.
-  All rights reserved.
-  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+    MIT License
+    Copyright (c) 2024 Fortinet Inc
   Copyright end */
 'use strict';
 (function () {
     angular
         .module('cybersponse')
-        .controller('editProgress_bar100Ctrl', editProgress_bar100Ctrl);
+        .controller('editProgressBar100Ctrl', editProgressBar100Ctrl);
 
-    editProgress_bar100Ctrl.$inject = ['$scope', 'config', '$uibModalInstance', 'Entity', 'FormEntityService', '$state', 'appModulesService'];
+        editProgressBar100Ctrl.$inject = ['$scope', 'config', '$uibModalInstance', 'Entity', 'appModulesService'];
 
-    function editProgress_bar100Ctrl($scope, config, $uibModalInstance, Entity, FormEntityService, $state, appModulesService) {
+    function editProgressBar100Ctrl($scope, config, $uibModalInstance, Entity, appModulesService) {
         // $scope: current scope of html and widget itself
         // $scope.page: current page can include ['dashboard', 'reporting', '?']
 
